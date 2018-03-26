@@ -5,13 +5,16 @@ public enum Transition
 {
     NullTransition=0,
     Close,
-    Open
+    Open,
+    SeePlayer,
+    LostPlayer
 }
 public enum StateID
 {
     NullStateID=0,
     Idle,
-    Sleep
+    Sleep,
+    Patrol,
 }
 public abstract class FSMState{
     protected StateID stateID;

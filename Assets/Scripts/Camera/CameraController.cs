@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour {
         Quaternion targetRot = Quaternion.LookRotation(dog.position - transform.position+Vector3.right*right_multiple-Vector3.up*up_multiple);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, speed * Time.deltaTime);
     }
-    public void SetCamera(Vector3 targetPosition, float speed = 1,float right_multiple=0.7f,float up_multiple=-0.2f)
+    public void SetCamera(Vector3 targetPosition, float speed = 1,float right_multiple=10,float up_multiple=-4.3f)
     {
         this.targetPosition = targetPosition;
         this.speed = speed;

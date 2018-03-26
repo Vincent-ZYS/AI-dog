@@ -65,6 +65,10 @@ public class MasterDialogueItem : MonoBehaviour {
             case "拜拜":
                 StartCoroutine(SwitchClosing());
                 break;
+            case "过来":
+            case "坐下":
+               StartCoroutine(Comeback());
+                break;
             default:StartCoroutine(DefaultAnswer());
                 break;             
         }
@@ -83,6 +87,7 @@ public class MasterDialogueItem : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.0f);
         //TODO 巡逻
+        InstantiatePetMessage("好的，我将保证没有一致苍蝇");
     }
     IEnumerator Shopping()
     {
@@ -93,6 +98,11 @@ public class MasterDialogueItem : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.0f);
         InstantiatePetMessage("拜拜");
+    }
+    IEnumerator Comeback()
+    {
+        yield return new WaitForSeconds(1.0f);
+        InstantiatePetMessage("马上");
     }
     void InstantiatePetMessage(string message)
     {

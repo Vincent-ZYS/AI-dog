@@ -14,12 +14,18 @@ public class DogAI : MonoBehaviour {
         fsm = new FSMSystem();
         FSMState sleepState = new SleepState(fsm);
         sleepState.AddTransition(Transition.Open, StateID.Idle);
+
+
         FSMState IdleState = new IdleState(fsm);
         IdleState.AddTransition(Transition.Close, StateID.Sleep);
+        IdleState.AddTransition(Transition.SeePlayer, StateID.Patrol);
 
+        FSMState patrolState = new PatrolState(fsm);
+        patrolState.AddTransition(Transition.Open, StateID.Idle);
 
         fsm.AddState(sleepState);
         fsm.AddState(IdleState);
+        fsm.AddState(patrolState);
        
     }
     void Update()
