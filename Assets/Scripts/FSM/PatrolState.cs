@@ -22,7 +22,6 @@ public class PatrolState:FSMState {
             if (child != pathTransform)
             {
                 path.Add(child);
-                Debug.Log(child.name);
             }
         }
      
@@ -39,6 +38,7 @@ public class PatrolState:FSMState {
         offset.y = npc.transform.position.y;
         npc.transform.Translate(Vector3.forward * Time.deltaTime * 10);
         AnimationExcuting.instance.anim.SetBool("Walk", true);
+        AnimationExcuting.instance.anim.SetBool("Bark", false);
         if (Vector3.Distance(npc.transform.position, path[index].position) < 1)
         {
             index++;
@@ -69,6 +69,7 @@ public class PatrolState:FSMState {
             GameObject.FindGameObjectWithTag(Tags.player).transform.Translate(Vector3.forward * Time.deltaTime * 3);
             GameObject.FindGameObjectWithTag(Tags.player).transform.LookAt(initalPosition.position);
             AnimationExcuting.instance.anim.SetBool("Walk", true);
+            AnimationExcuting.instance.anim.SetBool("Bark", false);
         }
         CameraController.Instance.SetCamera(new Vector3(5,9.6f,36.2f));
         GameObject.FindGameObjectWithTag(Tags.player).transform.forward = initalPosition.transform.forward;
