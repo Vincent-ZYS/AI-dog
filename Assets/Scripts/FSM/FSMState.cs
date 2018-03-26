@@ -15,6 +15,7 @@ public enum StateID
     Idle,
     Sleep,
     Patrol,
+    Chase
 }
 public abstract class FSMState{
     protected StateID stateID;

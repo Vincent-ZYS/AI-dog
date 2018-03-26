@@ -22,11 +22,17 @@ public class DogAI : MonoBehaviour {
 
         FSMState patrolState = new PatrolState(fsm);
         patrolState.AddTransition(Transition.Open, StateID.Idle);
+        patrolState.AddTransition(Transition.SeePlayer, StateID.Chase);
+
+
+        FSMState chaseState = new ChaseState(fsm);
+        chaseState.AddTransition(Transition.LostPlayer, StateID.Patrol);
 
         fsm.AddState(sleepState);
         fsm.AddState(IdleState);
         fsm.AddState(patrolState);
-       
+        fsm.AddState(chaseState);
+
     }
     void Update()
     {

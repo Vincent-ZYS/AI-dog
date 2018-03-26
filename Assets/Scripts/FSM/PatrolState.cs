@@ -53,7 +53,7 @@ public class PatrolState:FSMState {
                 break;
         }
         if (GameObject.FindWithTag(Tags.enemy) == null) return;
-        if (Vector3.Distance(GameObject.FindGameObjectWithTag(Tags.enemy).transform.position, GameObject.FindGameObjectWithTag(Tags.player).transform.position) <= 3.0f)
+        if (Vector3.Distance(npc.transform.position, GameObject.FindGameObjectWithTag(Tags.enemy).transform.position) <= 30.0f)
         {
             fsm.PerformTransition(Transition.SeePlayer);
         }
