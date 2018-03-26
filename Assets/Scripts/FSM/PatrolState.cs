@@ -15,14 +15,18 @@ public class PatrolState:FSMState {
         stateID = StateID.Patrol;
         initalPosition = GameObject.Find("DogInitiatePosition").transform;
         Transform pathTransform = GameObject.Find("Paths").transform;
+       
         Transform[] children = pathTransform.GetComponentsInChildren<Transform>();
         foreach (Transform child in children)
         {
             if (child != pathTransform)
             {
                 path.Add(child);
+                Debug.Log(child.name);
             }
         }
+     
+
     }
 
 
