@@ -111,7 +111,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 59fcd09faabb44c49afccf0884a6fd80,
+    type: 2}
   m_UseShadowmask: 0
 --- !u!1 &5
 GameObject:
