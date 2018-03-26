@@ -23,6 +23,9 @@ public class SleepState :FSMState {
             case "小狗同学":
                 fsm.PerformTransition(Transition.Open);
                 break;
+            case "巡逻":
+                fsm.PerformTransition(Transition.SeePlayer);
+                break;
         }
     }
 }

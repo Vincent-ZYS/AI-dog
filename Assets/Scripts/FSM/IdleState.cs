@@ -27,7 +27,8 @@ public class IdleState:FSMState {
                 break;
             case "超市":
                 break;
-            case "巡逻":  
+            case "巡逻":
+                fsm.PerformTransition(Transition.SeePlayer);
                 break;            
         }
     }
