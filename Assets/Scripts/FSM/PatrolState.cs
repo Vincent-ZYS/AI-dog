@@ -55,6 +55,10 @@ public class PatrolState:FSMState {
             case "坐下":
                ComebackInitalPosition();
                 break;
+            case "超市":
+                ComebackInitalPosition(10);
+                break;
+
         }
         if (GameObject.FindWithTag(Tags.enemy) == null) return;
         if (Vector3.Distance(npc.transform.position, GameObject.FindGameObjectWithTag(Tags.enemy).transform.position) <= 30.0f)
@@ -62,15 +66,17 @@ public class PatrolState:FSMState {
             fsm.PerformTransition(Transition.SeePlayer);
         }
     }
-  void  ComebackInitalPosition()
-    {   
+  void  ComebackInitalPosition(float speed=3)
+    {
+        Debug.Log("speed::" + speed);
         while (Vector3.Distance(GameObject.FindGameObjectWithTag(Tags.player).transform.position, initalPosition.position) > 1.0f)
         {
-            GameObject.FindGameObjectWithTag(Tags.player).transform.Translate(Vector3.forward * Time.deltaTime * 3);
+            GameObject.FindGameObjectWithTag(Tags.player).transform.Translate(Vector3.forward * Time.deltaTime * speed);
             GameObject.FindGameObjectWithTag(Tags.player).transform.LookAt(initalPosition.position);
             AnimationExcuting.instance.anim.SetBool("Walk", true);
             AnimationExcuting.instance.anim.SetBool("Bark", false);
         }
+       
         CameraController.Instance.SetCamera(new Vector3(5,9.6f,36.2f));
         GameObject.FindGameObjectWithTag(Tags.player).transform.forward = initalPosition.transform.forward;
         fsm.PerformTransition(Transition.Open);

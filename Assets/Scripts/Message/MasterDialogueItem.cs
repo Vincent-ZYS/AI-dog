@@ -91,6 +91,9 @@ public class MasterDialogueItem : MonoBehaviour {
     IEnumerator Shopping()
     {
         yield return new WaitForSeconds(1.0f);
+        InstantiatePetMessage("好的你想购买点什么呢?");
+        yield return new WaitForSeconds(1.0f);
+        TransformState.instance.ShoppingState();
         //TODO 购物
     }
     IEnumerator SwitchClosing()
