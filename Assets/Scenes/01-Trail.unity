@@ -1892,7 +1892,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
  HEAD
   m_LocalPosition: {x: -332.9, y: 157, z: 0}
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
   m_LocalPosition: {x: 0, y: 0, z: 0}
  634ff03c39bc33d62ac6771f2b8c708b5a214d15
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -3583,10 +3586,16 @@ RectTransform:
  HEAD
   m_LocalPosition: {x: 417.5, y: 250, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+<<<<<<< HEAD
 
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
  634ff03c39bc33d62ac6771f2b8c708b5a214d15
+=======
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+634ff03c39bc33d62ac6771f2b8c708b5a214d15
+>>>>>>> development
   m_Children:
   - {fileID: 860612159}
   - {fileID: 743971694}

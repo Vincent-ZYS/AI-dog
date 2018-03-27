@@ -54,7 +54,6 @@ public class MasterDialogueItem : MonoBehaviour {
                 break;
             case "巡逻":
                 StartCoroutine(Trail());
-                Debug.Log("看家,巡逻");
                 break;
             case "超市":
                 StartCoroutine(Shopping());
