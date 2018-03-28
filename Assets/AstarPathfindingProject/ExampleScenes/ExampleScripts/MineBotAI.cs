@@ -18,13 +18,13 @@ namespace Pathfinding.Examples {
 	[RequireComponent(typeof(Seeker))]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_mine_bot_a_i.php")]
 	public class MineBotAI : AIPath {
-		/** Animation component.
+        /** Animation component.
 		 * Should hold animations "awake" and "forward"
 		 */
-		public Animation anim;
+        public Animation anim;
 
-		/** Minimum velocity for moving */
-		public float sleepVelocity = 0.4F;
+        /** Minimum velocity for moving */
+        public float sleepVelocity = 0.4F;
 
 		/** Speed relative to velocity with which to play animations */
 		public float animationSpeed = 0.2F;
@@ -34,20 +34,23 @@ namespace Pathfinding.Examples {
 		public GameObject endOfPathEffect;
 
 		public new void Start () {
-			// Prioritize the walking animation
-			anim["forward"].layer = 10;
+            //Prioritize the walking animation
 
-			// Play all animations
-			anim.Play("awake");
-			anim.Play("forward");
+            anim["forward"].layer = 10;
 
-			// Setup awake animations properties
-			anim["awake"].wrapMode = WrapMode.Clamp;
-			anim["awake"].speed = 0;
-			anim["awake"].normalizedTime = 1F;
+            //Play all animations
 
-			// Call Start in base script (AIPath)
-			base.Start();
+            anim.Play("awake");
+            anim.Play("forward");
+
+            //Setup awake animations properties
+
+            anim["awake"].wrapMode = WrapMode.Clamp;
+            anim["awake"].speed = 0;
+            anim["awake"].normalizedTime = 1F;
+
+            // Call Start in base script (AIPath)
+            base.Start();
 		}
 
 		/** Point for the last spawn of #endOfPathEffect */
@@ -74,18 +77,20 @@ namespace Pathfinding.Examples {
 			relVelocity.y = 0;
 
 			if (relVelocity.sqrMagnitude <= sleepVelocity*sleepVelocity) {
-				// Fade out walking animation
-				anim.Blend("forward", 0, 0.2F);
-			} else {
-				// Fade in walking animation
-				anim.Blend("forward", 1, 0.2F);
+                // Fade out walking animation
+                anim.Blend("forward", 0, 0.2F);
 
-				// Modify animation speed to match velocity
-				AnimationState state = anim["forward"];
+            } else {
 
-				float speed = relVelocity.z;
-				state.speed = speed*animationSpeed;
-			}
+                // Fade in walking animation
+                anim.Blend("forward", 1, 0.2F);
+
+                // Modify animation speed to match velocity
+                AnimationState state = anim["forward"];
+
+                float speed = relVelocity.z;
+                state.speed = speed * animationSpeed;
+            }
 		}
 	}
 }

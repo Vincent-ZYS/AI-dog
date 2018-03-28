@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class MasterDialogueItem : MonoBehaviour {
-    private Text name;
+    private Text message_name;
     private Text message;
     public List<string> keywords = new List<string>();
     public GameObject petMessage;
-    private Transform VerticalLayout;
+    //private Transform VerticalLayout;
     void Start()
     { 
-        VerticalLayout = GameObject.Find("UICanvas").transform.Find("Message/Scroll View/VerticalLayout");
-        name = transform.Find("name_text").gameObject.GetComponent<Text>();
+        //VerticalLayout = GameObject.Find("UICanvas").transform.Find("Message/Scroll View/VerticalLayout");
+        message_name = transform.Find("name_text").gameObject.GetComponent<Text>();
         message= transform.Find("message_text").gameObject.GetComponent<Text>();
-        name.text = ":你";
+        message_name.text = ":你";
         if (this.transform.Find("dog_bg").gameObject.activeInHierarchy ==false)
         {
             SearchMessage();
@@ -54,7 +54,6 @@ public class MasterDialogueItem : MonoBehaviour {
                 break;
             case "巡逻":
                 StartCoroutine(Trail());
-                Debug.Log("看家,巡逻");
                 break;
             case "超市":
                 StartCoroutine(Shopping());
@@ -67,6 +66,7 @@ public class MasterDialogueItem : MonoBehaviour {
                 break;
             case "过来":
             case "坐下":
+            case "回来":
                StartCoroutine(Comeback());
                 break;
             default:StartCoroutine(DefaultAnswer());
@@ -92,6 +92,9 @@ public class MasterDialogueItem : MonoBehaviour {
     IEnumerator Shopping()
     {
         yield return new WaitForSeconds(1.0f);
+        InstantiatePetMessage("好的你想购买点什么呢?");
+        yield return new WaitForSeconds(1.0f);
+        TransformState.instance.ShoppingState();
         //TODO 购物
     }
     IEnumerator SwitchClosing()
