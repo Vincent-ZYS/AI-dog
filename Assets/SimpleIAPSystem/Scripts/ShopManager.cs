@@ -317,7 +317,7 @@ namespace SIS
         {
             if (!instance.errorWindow) return;
 
-            if(instance.message) instance.message.text = text;
+            if (instance.message) instance.message.text = text;
             instance.errorWindow.SetActive(true);
         }
 

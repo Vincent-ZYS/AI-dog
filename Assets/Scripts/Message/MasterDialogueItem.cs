@@ -66,6 +66,7 @@ public class MasterDialogueItem : MonoBehaviour {
                 break;
             case "过来":
             case "坐下":
+            case "回来":
                StartCoroutine(Comeback());
                 break;
             default:StartCoroutine(DefaultAnswer());

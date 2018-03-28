@@ -398,10 +398,14 @@ namespace SIS
             bool didSucceed = DBManager.VerifyVirtualPurchase(obj);
             if (isDebug) Debug.Log("Purchasing virtual product " + productId + ", result: " + didSucceed);
             //on success, non-consumables are saved to the database. This automatically
-			//saves the new substracted fund value, then and fire the succeeded event
+            //saves the new substracted fund value, then and fire the succeeded event
             if (didSucceed)
             {
-                if (obj.type == ProductType.Consumable) DBManager.IncreasePlayerData(productId, obj.usageCount);
+                if (obj.type == ProductType.Consumable)
+                {
+                    DBManager.IncreasePlayerData(productId, obj.usageCount);
+                    purchaseSucceededEvent(productId);
+                }
                 else DBManager.SetPurchase(obj.id);
                 purchaseSucceededEvent(productId);
             }

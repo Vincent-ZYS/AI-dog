@@ -14,7 +14,8 @@ public class ChaseState : FSMState {
 
     public override void Act(GameObject npc)
     {
-        if (GameObject.FindGameObjectWithTag(Tags.enemy).transform != null)
+        if (GameObject.FindGameObjectWithTag(Tags.enemy)==null) return;
+            if (GameObject.FindGameObjectWithTag(Tags.enemy).transform != null)
         {
             playerTransform = GameObject.FindGameObjectWithTag(Tags.enemy).transform;
         }
@@ -25,15 +26,21 @@ public class ChaseState : FSMState {
 
     public override void Reason(GameObject npc)
     {
-        if (Vector3.Distance(playerTransform.position, npc.transform.position) > 60&& Vector3.Distance(playerTransform.position, npc.transform.position)<10)
+        if (GameObject.FindGameObjectWithTag(Tags.enemy) == null)
+        {
+            fsm.PerformTransition(Transition.LostPlayer);
+            return;
+        }
+       if (Vector3.Distance(playerTransform.position, npc.transform.position) > 60&& Vector3.Distance(playerTransform.position, npc.transform.position)<10)
         {
             fsm.PerformTransition(Transition.LostPlayer);
         }
-        if(Vector3.Distance(playerTransform.position, npc.transform.position) <= 10)
+         if(Vector3.Distance(playerTransform.position, npc.transform.position) <= 10)
         {
            
             fsm.PerformTransition(Transition.FindEnemy);
         }
-        
+       
+
     }
 }

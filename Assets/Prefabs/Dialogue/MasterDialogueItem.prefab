@@ -292,6 +292,7 @@ MonoBehaviour:
   - "\u62DC\u62DC"
   - "\u8FC7\u6765"
   - "\u5750\u4E0B"
+  - "\u56DE\u6765"
   petMessage: {fileID: 1823736957161808}
 --- !u!114 &114823015049732586
 MonoBehaviour:

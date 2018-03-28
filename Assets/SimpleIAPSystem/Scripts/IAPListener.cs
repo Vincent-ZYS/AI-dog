@@ -49,8 +49,15 @@ namespace SIS
             switch (id)
             {
                 case "bag":
-                    ShowMessage("恭喜成功购买");
+                    ShowMessage("收到指令，即可购买");
+                  
                     break;
+                case "hat":
+                    ShowMessage("收到指令，即可购买");
+                    break;
+                default: ShowMessage("出错");
+                    break;
+
             }
         }
 

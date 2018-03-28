@@ -68,6 +68,7 @@ public class bl_IconItem : MonoBehaviour {
     public void InfoItem()
     {
         Debug.Log(this.buildingPosition.position);
+        DogAI.instance.target = buildingPosition;
         open = !open;
         Animation a = GetComponent<Animation>();
         if (open)

@@ -8,7 +8,9 @@ public enum Transition
     Open,
     SeePlayer,
     LostPlayer,
-    FindEnemy
+    FindEnemy,
+    Shopping,
+    Back,
 }
 public enum StateID
 {
@@ -17,7 +19,9 @@ public enum StateID
     Sleep,
     Patrol,
     Chase,
-    Bark
+    Bark,
+    GoOut,
+    ComeBack
 }
 public abstract class FSMState{
     protected StateID stateID;

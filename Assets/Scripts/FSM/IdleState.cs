@@ -31,6 +31,11 @@ public class IdleState:FSMState {
                 fsm.PerformTransition(Transition.SeePlayer);
                 break;            
         }
+        if (DogAI.instance.target == null) return;
+        if (DogAI.instance.target.tag==Tags.shop)
+        {
+            fsm.PerformTransition(Transition.Shopping);
+        }
     }
     void SwitchClosing()
     {
