@@ -48,7 +48,7 @@ public class DogAI : AIPath {
 
         FSMState gooutState = new GoOutState(fsm);
         gooutState.AddTransition(Transition.Back, StateID.ComeBack);
-       
+        gooutState.AddTransition(Transition.SeePlayer, StateID.Patrol);
 
         FSMState comebackState = new ComeBackState(fsm);
         comebackState.AddTransition(Transition.Open, StateID.Idle);

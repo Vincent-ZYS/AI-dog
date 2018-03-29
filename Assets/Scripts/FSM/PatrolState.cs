@@ -39,6 +39,7 @@ public class PatrolState:FSMState {
         npc.transform.Translate(Vector3.forward * Time.deltaTime * 10);
         AnimationExcuting.instance.anim.SetBool("Walk", true);
         AnimationExcuting.instance.anim.SetBool("Bark", false);
+        AnimationExcuting.instance.anim.SetBool("Run", false);
         if (Vector3.Distance(npc.transform.position, path[index].position) < 1)
         {
             index++;
@@ -56,7 +57,7 @@ public class PatrolState:FSMState {
                ComebackInitalPosition();
                 break;
             case "超市":
-                ComebackInitalPosition(10);
+                ComebackInitalPosition(3);
                 break;
 
         }

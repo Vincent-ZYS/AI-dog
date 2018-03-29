@@ -24,6 +24,13 @@ public class GoOutState : FSMState
             case "回来":
                 fsm.PerformTransition(Transition.Back);
                 break;
+            case "巡逻":
+                DogAI.instance.target = GameObject.Find("DogInitiatePosition").transform;
+                if (Vector3.Distance(npc.transform.position, GameObject.Find("DogInitiatePosition").transform.position) <= 1.0f)
+                {
+                    fsm.PerformTransition(Transition.SeePlayer);
+                }                   
+               break;
         }
         if (DogAI.instance.target == null)
             fsm.PerformTransition(Transition.Back);
