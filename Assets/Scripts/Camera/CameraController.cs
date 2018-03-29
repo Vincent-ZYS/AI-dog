@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
     //单例
     private static CameraController instance;
+    public bool isFollowPet = false;
     public static CameraController Instance
     {
         get
@@ -35,7 +36,7 @@ public class CameraController : MonoBehaviour {
         targetPosition = transform.position;
     }
     void LateUpdate()
-    {
+    { 
         transform.position = Vector3.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
         Quaternion targetRot = Quaternion.LookRotation(dog.position - transform.position+Vector3.right*right_multiple-Vector3.up*up_multiple);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, speed * Time.deltaTime);
@@ -46,6 +47,8 @@ public class CameraController : MonoBehaviour {
         this.speed = speed;
         this.right_multiple = right_multiple;
         this.up_multiple = up_multiple;
+       
     }
+ 
 
 }
