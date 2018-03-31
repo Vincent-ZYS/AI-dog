@@ -181,9 +181,9 @@ public class AIPath : AIBase {
 
 	/** Requests a path to the target */
 	public virtual void SearchPath () {
-		if (target == null) throw new System.InvalidOperationException("Target is null");
+        if (target == null) /*return;*/ throw new System.InvalidOperationException("Target is null");
 
-		lastRepath = Time.time;
+        lastRepath = Time.time;
 		// This is where we should search to
 		Vector3 targetPosition = target.position;
 

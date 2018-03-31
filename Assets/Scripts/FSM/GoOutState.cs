@@ -11,6 +11,9 @@ public class GoOutState : FSMState
     }
     public override void Act(GameObject npc)
     {
+       // 恢复AStar AI
+        DogAI.instance.canMove = true;
+        DogAI.instance.canSearch = true;
         CameraController.Instance.gameObject.GetComponent<AstarSmoothFollow2>().enabled = true;
         AnimationExcuting.instance.anim.SetBool("Run", true);
     }
@@ -22,6 +25,11 @@ public class GoOutState : FSMState
         switch (keycode)
         {
             case "回来":
+                fsm.PerformTransition(Transition.Back);
+                break;
+            case "巡逻":
+                IdleState idle = new IdleState(fsm);
+                idle.isCanPatrol = true;
                 fsm.PerformTransition(Transition.Back);
                 break;
         }
