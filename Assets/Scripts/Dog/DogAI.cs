@@ -77,6 +77,7 @@ public class DogAI : AIPath {
     {
         //TODO 到目的地所要的逻辑
         target = null;
+
     }
 
 

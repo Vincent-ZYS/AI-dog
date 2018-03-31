@@ -19,12 +19,13 @@ public class ComeBackState : FSMState
 
     public override void Reason(GameObject npc)
     {
-        if (Vector3.Distance(npc.transform.position, initialPosition.position) <=1.0f)
+        if (Vector3.Distance(npc.transform.position, initialPosition.position) <=7.0f)
         {
             fsm.PerformTransition(Transition.Open);
             //npc.transform.LookAt(-initialPosition.forward);
             //CameraController.Instance.SetCamera(new Vector3(5, 9.6f, 36.2f));
-
+            npc.transform.forward = -initialPosition.forward;
+            npc.transform.rotation = Quaternion.identity;
             CameraController.Instance.gameObject.GetComponent<AstarSmoothFollow2>().enabled = false;
             Debug.Log("到达");
         }
