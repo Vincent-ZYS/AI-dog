@@ -12,6 +12,8 @@ public class PatrolState:FSMState {
     public Transform initalPosition;
     public PatrolState(FSMSystem fsm) : base(fsm)
     {
+        IdleState idle = new IdleState(fsm);
+        idle.isCanPatrol = false;
         stateID = StateID.Patrol;
         initalPosition = GameObject.Find("DogInitiatePosition").transform;
         Transform pathTransform = GameObject.Find("Paths").transform;
@@ -30,8 +32,9 @@ public class PatrolState:FSMState {
 
 
     public override void Act(GameObject npc)
-    {
-
+    {  //2018/3/31/15:57 通过限制canMove和canSearch来解决巡逻时速度剧增的问题
+        DogAI.instance.canMove = false;
+        DogAI.instance.canSearch = false;
         CameraController.Instance.SetCamera(new Vector3(6f, 47f, 95f));
         npc.transform.LookAt(path[index].position);
         Vector3 offset = path[index].transform.position;
@@ -48,7 +51,7 @@ public class PatrolState:FSMState {
     }
 
     public override void Reason(GameObject npc)
-    {
+    {  
         string keycode = Message.instance.GetKeyCodes();
         switch(keycode)
         {

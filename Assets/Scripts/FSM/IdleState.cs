@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState:FSMState { 
+public class IdleState:FSMState {
+    public bool isCanPatrol = false;
     public  IdleState(FSMSystem fsm):base(fsm)
     {
         stateID = StateID.Idle;
@@ -16,7 +17,10 @@ public class IdleState:FSMState {
     }
 
     public override void Reason(GameObject npc)
-    {
+    {  if(isCanPatrol)
+        {
+            fsm.PerformTransition(Transition.SeePlayer);
+        }
         string keycode = Message.instance.GetKeyCodes();
         switch(keycode)
         {
