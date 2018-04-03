@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using Pathfinding.Examples;
 public class bl_IconItem : MonoBehaviour {
 
     public Image TargetGrapihc;
@@ -69,6 +69,10 @@ public class bl_IconItem : MonoBehaviour {
     {
         Debug.Log(this.buildingPosition.position);
         DogAI.instance.target = buildingPosition;
+        Debug.Log(DrawPath.instance == null);
+        DrawPath.instance.start = GameObject.FindGameObjectWithTag(Tags.player).transform;
+        DrawPath.instance.end = DogAI.instance.target;
+        DrawPath.instance.ShowPath();
         open = !open;
         Animation a = GetComponent<Animation>();
         if (open)

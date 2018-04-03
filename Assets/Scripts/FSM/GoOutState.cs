@@ -11,7 +11,9 @@ public class GoOutState : FSMState
     }
     public override void Act(GameObject npc)
     {
-       // 恢复AStar AI
+        // 恢复AStar AI
+   
+        EnviromentManager.instance.ChangeDirectlight(0.4f);
         DogAI.instance.canMove = true;
         DogAI.instance.canSearch = true;
         CameraController.Instance.gameObject.GetComponent<AstarSmoothFollow2>().enabled = true;
@@ -34,6 +36,11 @@ public class GoOutState : FSMState
                 break;
         }
         if (DogAI.instance.target == null)
+        {
             fsm.PerformTransition(Transition.Back);
+            DrawPath.instance.start = GameObject.FindGameObjectWithTag(Tags.player).transform;
+            DrawPath.instance.end = GameObject.Find("DogInitiatePosition").transform;
+            DrawPath.instance.ShowPath();
+        }
     }
 }
