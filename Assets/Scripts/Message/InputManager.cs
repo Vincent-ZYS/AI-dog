@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour {
     private Transform VerticalLayout;
     public static InputManager instance;
     private Text inputMessage;
+
     void Awake()
     {
         instance = this;
@@ -23,7 +24,7 @@ public class InputManager : MonoBehaviour {
         master_message.transform.SetParent(VerticalLayout);
         master_message.transform.Find("message_text").gameObject.GetComponent<Text>().text = inputMessage.text;
         inputMessage.gameObject.transform.parent.gameObject.GetComponent<InputField>().text = "";
-       
+
     }
     void Update()
     {

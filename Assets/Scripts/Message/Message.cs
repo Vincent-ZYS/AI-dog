@@ -6,6 +6,7 @@ public class Message : MonoBehaviour {
 
     public static Message instance;
     private bool isShow = false;
+    GameObject message_button;
     [HideInInspector]
     public string keycode;
    void Awake()
@@ -14,6 +15,7 @@ public class Message : MonoBehaviour {
     }
     void Start()
     {
+        message_button = GameObject.Find("message_button");
         this.gameObject.SetActive(false);
     }
     public void TransformState()
@@ -33,14 +35,17 @@ public class Message : MonoBehaviour {
     void Hide()
     {
         this.gameObject.SetActive(false);
+        message_button.SetActive(true);
     }
     void Show()
     {
         this.gameObject.SetActive(true);
+        message_button.SetActive(false);
     }
     public void SetKeyCodes(string keycode)
     {
         this.keycode = keycode;
+
     }
     public string GetKeyCodes()
     {
