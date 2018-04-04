@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class MasterDialogueItem : MonoBehaviour {
-    private Text message_name;
     private Text message;
     public List<string> keywords = new List<string>();
     public GameObject petMessage;
     //private Transform VerticalLayout;
     void Start()
     { 
-        //VerticalLayout = GameObject.Find("UICanvas").transform.Find("Message/Scroll View/VerticalLayout");
-        message_name = transform.Find("name_text").gameObject.GetComponent<Text>();
         message= transform.Find("message_text").gameObject.GetComponent<Text>();
-        message_name.text = ":你";
         if (this.transform.Find("dog_bg").gameObject.activeInHierarchy ==false)
         {
             SearchMessage();
