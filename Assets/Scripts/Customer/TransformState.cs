@@ -39,9 +39,13 @@ public class TransformState : MonoBehaviour {
 
         StartCoroutine("ShowMiniMap");
     }
-   public IEnumerator ShowMiniMap()
+    public IEnumerator ShowMiniMap()
     {
         yield return new WaitForSeconds(1.0f);
         minimap.SetActive(true);
+    }
+    public void ShowViewState()
+    {
+        GameObject.Find("UICanvas").transform.Find("ViewButton").gameObject.GetComponent<View>().TransformState();
     }
 }
