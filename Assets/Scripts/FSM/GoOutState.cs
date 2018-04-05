@@ -37,6 +37,7 @@ public class GoOutState : FSMState
         }
         if (DogAI.instance.target == null)
         {
+            DogPackage.instance.ShowPackage(true);
             fsm.PerformTransition(Transition.Back);
             DrawPath.instance.start = GameObject.FindGameObjectWithTag(Tags.player).transform;
             DrawPath.instance.end = GameObject.Find("DogInitiatePosition").transform;

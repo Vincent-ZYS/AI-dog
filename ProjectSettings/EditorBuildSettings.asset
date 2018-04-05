@@ -6,5 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/01-Trail.unity
-    guid: 74db719d58de741b9a9bdf36bab3d6da
+    path: Assets/SimpleIAPSystem/Scenes/AllSelection.unity
+    guid: d425ea82996afa04295bd94038c7d076
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/Horizontal.unity
+    guid: 876645c6ea4aee744a564d51268cb5f4
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/HorizontalMenu.unity
+    guid: fba03ea2ac0a0294f926e6db4d00ff9b
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/HorizontalTabs.unity
+    guid: 2b46b597bbb4ba8419b98ab144fd517f
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/UserLogin.unity
+    guid: 2ba25b640ae32ad4ea929e17700a3d89
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/Vertical.unity
+    guid: ad77298b258ac624284cef1e97e127f5
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/VerticalMenu.unity
+    guid: ecc7ffca76eb6c04b9d42c76ea29b7f2
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/VerticalTabs.unity
+    guid: 79975eb433bed4a478cb8db4df836e37
+  - enabled: 1
+    path: Assets/SimpleIAPSystem/Scenes/VerticalVR.unity
+    guid: 108049494bff9411a94c73075c51aadc
