@@ -6854,6 +6854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 100000, guid: deba0a6f7ec514207b7e850591a6f942, type: 2}
+  obstacle: {fileID: 0}
   direct: 1
   issueGUOs: 0
 --- !u!65 &429

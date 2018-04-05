@@ -7,7 +7,9 @@ public class InputManager : MonoBehaviour {
     private Transform VerticalLayout;
     public static InputManager instance;
     private Text inputMessage;
-
+    public RectTransform vertical;
+    public RectTransform scrollView;
+    public float increment;
     void Awake()
     {
         instance = this;
@@ -24,7 +26,10 @@ public class InputManager : MonoBehaviour {
         master_message.transform.SetParent(VerticalLayout);
         master_message.transform.Find("message_text").gameObject.GetComponent<Text>().text = inputMessage.text;
         inputMessage.gameObject.transform.parent.gameObject.GetComponent<InputField>().text = "";
-
+        if(vertical.sizeDelta.y>scrollView.sizeDelta.y)
+        {
+            vertical.localPosition=new Vector3(vertical.localPosition.x,vertical.sizeDelta.y,0);
+        }
     }
     void Update()
     {
