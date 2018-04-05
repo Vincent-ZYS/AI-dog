@@ -424,7 +424,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141326691401000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38, y: -22.920004, z: 0}
+  m_LocalPosition: {x: 26, y: -22.920004, z: 0}
   m_LocalScale: {x: 1, y: 0.8621849, z: 1}
   m_Children: []
   m_Father: {fileID: 224442886389688684}
@@ -432,7 +432,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 38, y: -22.920004}
+  m_AnchoredPosition: {x: 26, y: -22.920004}
   m_SizeDelta: {x: -56.32, y: -59.772}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224396160424522858
@@ -502,7 +502,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1005429224097846}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.24498, y: -21.7, z: 0}
+  m_LocalPosition: {x: 31.24498, y: -21.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224442886389688684}
@@ -510,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -91.58002, y: -21.7}
+  m_AnchoredPosition: {x: -103.58002, y: -21.7}
   m_SizeDelta: {x: 202.83, y: 38.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224670400962540732
@@ -538,7 +538,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1269596651956802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -97.825, y: -24.760002, z: 0}
+  m_LocalPosition: {x: -109.825, y: -24.760002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224442886389688684}
@@ -546,6 +546,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 37, y: -24.760002}
+  m_AnchoredPosition: {x: 25, y: -24.760002}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}

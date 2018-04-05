@@ -8,7 +8,7 @@ namespace Pathfinding.Examples {
 		 * When using a Grid Graph you need to make sure the object's layer is included in the collision mask in the GridGraph settings.
 		 */
 		public GameObject go;
-        public GameObject obstacle;
+
 		/** Flush Graph Updates directly after placing. Slower, but updates are applied immidiately */
 		public bool direct = false;
 
@@ -18,26 +18,22 @@ namespace Pathfinding.Examples {
 		/** Update is called once per frame */
 		void Update () {
 			if (Input.GetKeyDown("p")) {
-				PlaceObject(go);
+				PlaceObject();
 			}
-            if(Input.GetKeyDown(KeyCode.O))
-            {
-                PlaceObject(obstacle);
-            }
 
 			if (Input.GetKeyDown("r")) {
 				RemoveObject();
 			}
 		}
 
-		public void PlaceObject (GameObject t) {
+		public void PlaceObject () {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 
 			// Figure out where the ground is
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
 				Vector3 p = hit.point;
-				GameObject obj = GameObject.Instantiate(t, p, Quaternion.identity) as GameObject;
+				GameObject obj = GameObject.Instantiate(go, p, Quaternion.identity) as GameObject;
 
 				if (issueGUOs) {
 					Bounds b = obj.GetComponent<Collider>().bounds;
