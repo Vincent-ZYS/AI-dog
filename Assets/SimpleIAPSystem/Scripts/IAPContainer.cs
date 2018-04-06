@@ -9,10 +9,10 @@ using UnityEngine.UI;
 
 namespace SIS
 {
-    /// <summary>
-    /// Stretches a container rect transform to include all children.
-    /// Also repositions children using the GridLayoutGroup, if found.
-    /// </summary>
+        /// <summary>
+        /// Stretches a container rect transform to include all children.
+        /// Also repositions children using the GridLayoutGroup, if found.
+        /// </summary>
     public class IAPContainer : MonoBehaviour
     {
         /// <summary>
