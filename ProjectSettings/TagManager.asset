@@ -8,6 +8,7 @@ TagManager:
   - Node
   - Shop
   - TransparentFX
+  - position
   layers:
   - Default
   - TransparentFX
