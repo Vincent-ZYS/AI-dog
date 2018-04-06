@@ -14,6 +14,7 @@ public class IdleState:FSMState {
     {
         followScript.distance = 11;
         followScript.horzintal = 0;
+        DogPackage.instance.ShowPackage(false);
         if (DrawPath.instance.lastRender != null && DrawPath.instance.lastRender.Count > 0)
         {
             DrawPath.instance.ClearPrevious();

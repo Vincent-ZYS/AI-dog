@@ -8,7 +8,7 @@ namespace Pathfinding.Examples {
 		 * When using a Grid Graph you need to make sure the object's layer is included in the collision mask in the GridGraph settings.
 		 */
 		public GameObject go;
-
+        public GameObject obstacle;
 		/** Flush Graph Updates directly after placing. Slower, but updates are applied immidiately */
 		public bool direct = false;
 
@@ -18,15 +18,19 @@ namespace Pathfinding.Examples {
 		/** Update is called once per frame */
 		void Update () {
 			if (Input.GetKeyDown("p")) {
-				PlaceObject();
+				PlaceObject(go);
 			}
+            if (Input.GetKeyDown(KeyCode.O))
+            {
+                PlaceObject(obstacle);
+            }
 
-			if (Input.GetKeyDown("r")) {
+            if (Input.GetKeyDown("r")) {
 				RemoveObject();
 			}
 		}
 
-		public void PlaceObject () {
+		public void PlaceObject (GameObject go) {
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			RaycastHit hit;
 
@@ -36,12 +40,17 @@ namespace Pathfinding.Examples {
 				GameObject obj = GameObject.Instantiate(go, p, Quaternion.identity) as GameObject;
 
 				if (issueGUOs) {
-					Bounds b = obj.GetComponent<Collider>().bounds;
-					GraphUpdateObject guo = new GraphUpdateObject(b);
-					AstarPath.active.UpdateGraphs(guo);
-					if (direct) {
-						AstarPath.active.FlushGraphUpdates();
-					}
+                    //只有是障碍物才会更新
+                    if (obj.tag == Tags.wall)
+                    {
+                        Bounds b = obj.GetComponent<Collider>().bounds;
+                        GraphUpdateObject guo = new GraphUpdateObject(b);
+                        AstarPath.active.UpdateGraphs(guo);
+                        if (direct)
+                        {
+                            AstarPath.active.FlushGraphUpdates();
+                        }
+                    }
 				}
 			}
 		}
@@ -53,7 +62,7 @@ namespace Pathfinding.Examples {
 			// Check what object is under the mouse cursor
 			if (Physics.Raycast(ray, out hit, Mathf.Infinity)) {
 				// Ignore ground and triggers
-				if (hit.collider.isTrigger || hit.transform.gameObject.name == "Ground") return;
+				if (hit.collider.isTrigger || hit.transform.gameObject.name == "Room"||hit.collider.tag=="Untagged") return;
 
 				Bounds b = hit.collider.bounds;
 				Destroy(hit.collider);
